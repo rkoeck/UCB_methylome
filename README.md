@@ -5,7 +5,7 @@ The manifest_filter directory contains the manifest files used for the targeted 
 
 ### Data preprocessing:
 
-1. Data were first [pre-processed](scripts/01_preprocessingSWAN.R) using the RnBeads package which applied the following functions:
+1. [Data were first pre-processed using the RnBeads package which applied the following functions:](scripts/01_preprocessingSWAN.R)
     + Normalisation using the SWAN method  
     + greedycut (p-value threshold 0.05) removal of poor quality sites and samples
     + removal of probes on the sex chromosomes
@@ -13,29 +13,29 @@ The manifest_filter directory contains the manifest files used for the targeted 
     + removal of probes not in the CpG context
     + removal of probes with missing values in 5% or more of the samples
 2.	Sex estimation using the method from the sEst package:
-    + extraction of raw beta values (unnormalized) and of detection p-values for all samples
-    + sex prediction & visualisation
+    + [extraction of raw beta values (unnormalized) and of detection p-values for all samples](scripts/02.1_preprocessingSest.R)
+    + [sex prediction & visualisation](scripts/02.2_SexPredictionsEst.R)
 3. Cell composition estimates are calculated using the IDOL optimized probes from the package FlowSorted.Blood.Epic:
-    + calculation of the cell compositions
-    + visualization of the results
+    + [calculation of the cell compositions](scripts/03.1_CellCompositionEstimation.R)
+    + [visualization of the results](scripts/03.2_CellCompositionVisualisation.R)
 
 ### Analysis & visualization:
 
-4.	Principal component analysis & determination of associations between PCs and sample characteristics
-5.	Differential methylation analysis (sites) using eBayes moderated mixed effects linear models as implemented in the VariancePartition package
-6.	Differential methylation analysis on a regional level using eBayes moderated mixed effects linear models as implemented in the VariancePartition package. Groups of interest: genes, promoters, CpG islands
-7.	Visualisation of the differential methylation analyses as volcano plots
+4.	[Principal component analysis & determination of associations between PCs and sample characteristics](scripts/04_PCACovariates.R)
+5.	[Differential methylation analysis (sites) using eBayes moderated mixed effects linear models as implemented in the VariancePartition package](scripts/05_EWAS.R)
+6.	[Differential methylation analysis on a regional level using eBayes moderated mixed effects linear models as implemented in the VariancePartition package. Groups of interest: genes, promoters, CpG islands](scripts/06_RegionsStatistics.R)
+7.	[Visualisation of the differential methylation analyses as volcano plots](scripts/07_VolcanoPlot.R)
 8.	Determination of outliers using a threshold-based approach
-    + Calculation of the outliers
-    + visualization of the outliers per sample
-9.	Application of the iEVORA algorithm to identify differentially variable CpG sites
+    + [Calculation of the outliers](scripts/08.1_Outliers.R)
+    + [visualization of the outliers per sample](scripts/08.2_OutliersVisualisation.R)
+9.	[Application of the iEVORA algorithm to identify differentially variable CpG sites](scripts/09_iEVORA.R)
 10.	Application of the Knight epigenetic gestational age predictor
-    + Preparation of the data according to the Knight method
-    + A script to conduct the epigenetic gestational age prediction for each sample which calls
-    + the script for normalization and estimation
+    + [Preparation of the data according to the Knight method](scripts/10.1_preprocessingKnight.R)
+    + [A script to conduct the epigenetic gestational age prediction for each sample which calls](scripts/10.2_KnightGAEstimates.R)
+    + [the script for normalization and estimation](scripts/10.3_NormalizeAndPredictGA.R)
 11.	Calculation of epigenetic gestational age based on the Bohlin method
-    + preprocessing of the data according to the Bohlin method
-    + estimating epigenetic gestational age according to the Bohlin method
-    + calculating the residuals and visualizing the results
-12.	Combination of the resultant plots from the scripts above for publication
+    + [preprocessing of the data according to the Bohlin method](scripts/11.1_preprocessingBohlin.R)
+    + [estimating epigenetic gestational age according to the Bohlin method](scripts/11.2_BohlinEstimateGA.R)
+    + [calculating the residuals and visualizing the results](scripts/11.3_BohlinResiduals.R)
+12.	[Combination of the resultant plots from the scripts above for publication](scripts/12_combinePlots.R)
 
