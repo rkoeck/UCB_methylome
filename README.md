@@ -5,7 +5,7 @@ The manifest_filter directory contains the manifest files used for the targeted 
 
 ### Data preprocessing:
 
-1. Data were first pre-processed using the RnBeads package which applied the following functions:
+1. Data were first [pre-processed](scripts/01_preprocessingSWAN.R) using the RnBeads package which applied the following functions:
     + Normalisation using the SWAN method  
     + greedycut (p-value threshold 0.05) removal of poor quality sites and samples
     + removal of probes on the sex chromosomes
@@ -13,7 +13,7 @@ The manifest_filter directory contains the manifest files used for the targeted 
     + removal of probes not in the CpG context
     + removal of probes with missing values in 5% or more of the samples
 2.	Sex estimation using the method from the sEst package:
-    + extraction of raw beta values (unnormalized) and detection p-values for all samples
+    + extraction of raw beta values (unnormalized) and of detection p-values for all samples
     + sex prediction & visualisation
 3. Cell composition estimates are calculated using the IDOL optimized probes from the package FlowSorted.Blood.Epic:
     + calculation of the cell compositions
