@@ -3,6 +3,11 @@ In this project we have compared the umbilical cord blood (UCB) methylome of neo
 
 The manifest_filter directory contains the manifest files used for the targeted analyses and the scripts directory contains the scripts used for data processing, analysis and visualization. A brief description of the contents of the scripts is given below:
 
+### Singularity container
+The build files can be used to create singularity images containing all the necessary software and packages for the following purposes:
+1. [Data processing]{scripts/RnBeadsBlood_build.txt}
+2. [statistical testing]{scripts/dream_build.txt} with mixed effects linear models as implemented in the dream package
+
 ### Data preprocessing:
 
 1. [Data were first pre-processed using the RnBeads package which applied the following functions:](scripts/01_preprocessingSWAN.R)
