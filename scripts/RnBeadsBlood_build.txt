@@ -1,0 +1,35 @@
+Bootstrap: docker
+From: r-base:3.5.1
+IncludeCmd: yes
+
+%labels
+  Author Rebekka Koeck
+  Version v1.0
+  R_Version 3.5.x
+  build_date 2020 April 16
+  R_bioconductor True
+
+%apprun R
+  exec R "$@"
+
+%apprun Rscript
+  exec Rscript "$@"
+
+%runscript
+  exec R "$@"
+
+%post
+  apt-get update
+  apt-get install -y libz-dev libcurl4-openssl-dev libxml2-dev libssl-dev
+  apt-get install -y r-cran-xml
+  apt-get install -y libxml2-dev
+  apt-get install -y ghostscript
+  install2.r --error --deps TRUE doParallel && rm -rf /tmp/downloaded_packages/  
+
+  R --slave -e "source('http://rnbeads.org/data/install.R'); \
+  install.packages('BiocManager'); \
+  library(BiocManager); \
+  BiocManager::install('RnBeads.hg38')"
+
+
+  R --slave -e "BiocManager::install('FlowSorted.Blood.450k')"
