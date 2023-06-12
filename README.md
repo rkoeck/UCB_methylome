@@ -5,8 +5,8 @@ The manifest_filter directory contains the manifest files used for the targeted 
 
 ### Singularity container
 The build files can be used to create singularity images containing all the necessary software and packages for the following purposes:
-1. [Data processing]{scripts/RnBeadsBlood_build.txt}
-2. [statistical testing]{scripts/dream_build.txt} with mixed effects linear models as implemented in the dream package
+1. [Data processing](scripts/RnBeadsBlood_build.txt)
+2. [statistical testing](scripts/dream_build.txt) with mixed effects linear models as implemented in the dream package
 
 ### Data preprocessing:
 
